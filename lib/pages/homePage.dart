@@ -77,7 +77,7 @@ class _HomePageState extends State<HomePage> {
               color: Colors.white, fontWeight: FontWeight.bold, fontSize: 27),
         ),
       ),
-      drawer: Drawer(width: 200,
+      drawer: Drawer(
         child: ListView(
           padding: const EdgeInsets.symmetric(vertical: 20),
           children: [
@@ -148,24 +148,6 @@ class _HomePageState extends State<HomePage> {
                   style: TextStyle(
                       fontWeight: FontWeight.bold, color: Colors.black)),
             ),
-            ListTile(
-              leading:const Icon(Icons.info_outline),
-              title: const Text("Info"),
-              trailing: InkWell(
-                onTap: (){
-                  showDialog(barrierDismissible:true,context: context, builder: (_){
-                    return const AboutDialog(
-                      applicationName: "Groupie",
-                      applicationVersion: "1.2",
-                      children: [
-                        Text("Developed by Shivani Bind"),
-                        Text("Its Small Chatting App with friends or family or make community. Its easy to use and understand anyone can understand this app and use it.")
-                      ],
-                    );
-                  });
-                },
-              ),
-            )
           ],
         ),
       ),

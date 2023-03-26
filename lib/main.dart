@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:chat_app/constants.dart';
 import 'package:chat_app/helper/helper_function.dart';
+import 'package:chat_app/widgets/widget.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +19,6 @@ Future<void> main() async {
       systemNavigationBarIconBrightness: Brightness.dark
     )
   );
-  WidgetsFlutterBinding.ensureInitialized();
   if (kIsWeb) {
     await Firebase.initializeApp(
         options: const FirebaseOptions(
@@ -39,6 +41,27 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primaryColor: mainColor,
+      ),
+      home:const Splash(),
+    );
+  }
+}
+class Splash extends StatefulWidget {
+  const Splash({Key? key}) : super(key: key);
+
+  @override
+  State<Splash> createState() => _SplashState();
+}
+
+class _SplashState extends State<Splash> {
   bool _isSignedIn = false;
   @override
   void initState() {
@@ -54,17 +77,26 @@ class _MyAppState extends State<MyApp> {
         });
       }
     });
+    Timer(const Duration(seconds: 2),(){
+      if(_isSignedIn){
+        nextScreenReplace(context, const HomePage());
+      }else{
+        nextScreenReplace(context, const LoginPage());
+      }
+    });
   }
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primaryColor: mainColor,
-      ),
-      home: _isSignedIn ? const HomePage() : LoginPage(),
-    );
+    return Scaffold(backgroundColor: mainColor,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+        children: const [
+          Text("Groupie",textAlign:TextAlign.center,style: TextStyle(fontSize: 100,color: Colors.white,fontWeight: FontWeight.bold),),
+          Text("Developed by Shivu",textAlign: TextAlign.center,style: TextStyle(color: Colors.white54),)
+        ],
+    ),
+      ),);
   }
 }
+
