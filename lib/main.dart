@@ -12,6 +12,7 @@ import 'pages/homePage.dart';
 import 'pages/Auth/login.dart';
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
       statusBarColor: mainColor,
@@ -93,7 +94,7 @@ class _SplashState extends State<Splash> {
           mainAxisAlignment: MainAxisAlignment.center,
         children: const [
           Text("Groupie",textAlign:TextAlign.center,style: TextStyle(fontSize: 100,color: Colors.white,fontWeight: FontWeight.bold),),
-          Text("Developed by Shivu",textAlign: TextAlign.center,style: TextStyle(color: Colors.white54),)
+          Text("Developed by Shivu",textAlign: TextAlign.center,style: TextStyle(color: Colors.white),)
         ],
     ),
       ),);
