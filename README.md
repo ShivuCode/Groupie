@@ -7,7 +7,7 @@
  <img src="https://github.com/ShivuCode/Groupie/blob/main/assets/home.png?raw=true" width="200" height="450">
  <img src="https://github.com/ShivuCode/Groupie/blob/main/assets/drawer.png?raw=true" width="200" height="450"> 
  <img src="https://github.com/ShivuCode/Groupie/blob/main/assets/addGroup.png?raw=true" width="200" height="450"> 
- <img src="https://github.com/ShivuCode/Groupie/blob/main/assets/Group_Info.png?raw=true" width="200" height="450">
+ <img src="https://github.com/ShivuCode/Groupie/blob/main/assets/group_Info.png?raw=true" width="200" height="450">
  <img src="https://github.com/ShivuCode/Groupie/blob/main/assets/chatPage.png?raw=true" width="200" height="450"> 
  <img src="https://github.com/ShivuCode/Groupie/blob/main/assets/searchPage.png?raw=true" width="200" height="450"> 
  <img src="https://github.com/ShivuCode/Groupie/blob/main/assets/ProfilePage.png?raw=true" width="200" height="450">
