@@ -42,7 +42,6 @@ class DatabaseService {
       "recentMessageSender": "",
     });
     //update the members
-
     await documentReference.update({
       "members": FieldValue.arrayUnion(["${uid}_$username}"]),
       "groupId": documentReference.id
@@ -102,14 +101,14 @@ Future<bool> isUserJoin(String groupName,String groupId,String userName)async{
           "groups":FieldValue.arrayRemove(["${groupId}_$groupName"])
         });
         await groupDocumentReference.update({
-          "groups":FieldValue.arrayRemove(["${uid}_$userName"])
+          "members":FieldValue.arrayRemove(["${uid}_$userName"])
         });
       }else{
         await userDocumentReference.update({
           "groups":FieldValue.arrayUnion(["${groupId}_$groupName"])
         });
         await groupDocumentReference.update({
-          "groups":FieldValue.arrayUnion(["${uid}_$userName"])
+          "members":FieldValue.arrayUnion(["${uid}_$userName"])
         });
       }
     } else {

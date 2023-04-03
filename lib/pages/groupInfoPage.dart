@@ -35,6 +35,7 @@ class _GroupInfoState extends State<GroupInfo> {
         .then((val) {
       setState(() {
         members = val;
+        print(val);
       });
     });
   }
@@ -133,7 +134,7 @@ class _GroupInfoState extends State<GroupInfo> {
             if (snapshot.data["members"] != null) {
               if (snapshot.data["members"].length > 0) {
                 return Expanded(
-                  child: PageView.builder(
+                  child: ListView.builder(
                       scrollDirection: Axis.vertical,
                       itemCount: snapshot.data["members"].length,
                       itemBuilder: (_, index) {
@@ -155,10 +156,6 @@ class _GroupInfoState extends State<GroupInfo> {
                           title: Text(
                             getName(snapshot.data["members"][index]),
                             style: const TextStyle(fontWeight: FontWeight.w500),
-                          ),
-                          subtitle: Text(
-                            getId(snapshot.data["members"][index]),
-                            style: const TextStyle(fontSize: 14),
                           ),
                         );
                       }),
